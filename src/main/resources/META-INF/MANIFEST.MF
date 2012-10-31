@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 1
+Bundle-Name: Test Activity project
+Bundle-SymbolicName: org.nuxeo.ecm.platform.notification.async;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Nuxeo
+Bundle-Category: web,stateless
+Nuxeo-Component: OSGI-INF/async-activity-stream-contrib.xml,
+ OSGI-INF/async-listener-contrib.xml,
+ OSGI-INF/async-nxplacefulservice-contrib.xml,
+ OSGI-INF/async-template-contrib.xml

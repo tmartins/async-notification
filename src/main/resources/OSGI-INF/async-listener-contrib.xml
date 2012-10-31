@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.notification.async.listener" version="1.0.0">
+
+  <require>org.nuxeo.ecm.platform.notification.listener</require>
+  <require>org.nuxeo.ecm.activity.listeners</require>
+
+  <extension target="org.nuxeo.ecm.core.event.EventServiceComponent" point="listener">
+
+    <listener name="notificationListener" async="true" postCommit="true" enabled="false"
+      class="org.nuxeo.ecm.platform.ec.notification.NotificationEventListener" priority="120">
+    </listener>
+    
+    <listener name="activityStreamListener" async="true" postCommit="true" enabled="false"
+      class="org.nuxeo.ecm.activity.ActivityStreamListener"
+      priority="100">
+      <event>documentCreated</event>
+      <event>documentModified</event>
+      <event>documentRemoved</event>
+    </listener>
+    
+    <listener name="advancedNotificationListener" async="true" postCommit="true"
+      class="fr.nuxeo.activity.test.AdvancedNotificationEventListener" priority="150">
+    </listener>
+    
+    <listener name="postmanListener" async="true" postCommit="true"
+      class="fr.nuxeo.activity.test.PostmanEventListener" priority="150">
+      <event>dailySubscription</event>
+      <event>weeklySubscription</event>
+    </listener>
+
+  </extension>
+
+</component>

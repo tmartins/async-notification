@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<component
+  name="org.nuxeo.notification.async.template">
+
+  <extension
+    target="org.nuxeo.ecm.platform.ec.notification.service.NotificationService"
+    point="templates">
+
+    <template name="notificationSummary" src="templates/notification-summary.ftl" />
+
+  </extension>
+
+</component>

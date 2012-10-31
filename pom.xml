@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.nuxeo.ecm.platform</groupId>
+    <artifactId>nuxeo-features-parent</artifactId>
+    <version>5.6</version>
+  </parent>
+
+  <groupId>org.nuxeo.ecm.platform</groupId>
+  <artifactId>nuxeo-platform-notification-async</artifactId>
+  <name>Asynchronous notification</name>
+  <packaging>jar</packaging>
+  <description>Package to receive notifications asynchronously</description>
+  <version>1.0</version>
+
+  <scm>
+    <connection>scm:hg:http://hg.nuxeo.org/nuxeo</connection>
+    <developerConnection>scm:hg:https://hg.nuxeo.org/nuxeo</developerConnection>
+    <url>http://hg.nuxeo.org/nuxeo/</url>
+  </scm>
+
+  <properties>
+    <nuxeo.platform.version>5.5</nuxeo.platform.version>
+    <pg.version>8.3-603.jdbc3</pg.version>
+  </properties>
+
+  <dependencies>
+    
+    <dependency>
+      <groupId>org.nuxeo.activity</groupId>
+      <artifactId>nuxeo-activity</artifactId>
+      <version>${parent.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.nuxeo.ecm.platform</groupId>
+      <artifactId>nuxeo-user-profile</artifactId>
+      <version>${parent.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.nuxeo.ecm.platform</groupId>
+      <artifactId>nuxeo-platform-placeful-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.nuxeo.ecm.platform</groupId>
+      <artifactId>nuxeo-platform-notification-core</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.persistence</groupId>
+      <artifactId>persistence-api</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.nuxeo.ecm.automation</groupId>
+      <artifactId>nuxeo-automation-features</artifactId>
+    </dependency>
+
+  </dependencies>
+
+
+  <developers>
+    <!-- TODO fill here developers or mailing lists -->
+  </developers>
+
+  <modules>
+  </modules>
+
+</project>

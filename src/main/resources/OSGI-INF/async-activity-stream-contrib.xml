@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.notification.async.stream.filters">
+
+  <require>org.nuxeo.ecm.social.user.activity.stream.filters</require>
+
+  <extension target="org.nuxeo.ecm.activity.ActivityStreamService"
+    point="activityStreamFilters">
+
+    <activityStreamFilter
+      class="fr.nuxeo.activity.test.NotificationActivityStreamFilter" />
+
+  </extension>
+
+  <extension target="org.nuxeo.ecm.activity.ActivityStreamService"
+    point="activityStreams">
+
+    <activityStream name="notificationActivityStream">
+      <verbs>
+        <verb>documentPublished</verb>
+      </verbs>
+    </activityStream>
+
+  </extension>
+
+</component>

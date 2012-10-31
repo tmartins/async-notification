@@ -1,0 +1,75 @@
+diff --git a/nuxeo-user-profile/src/main/resources/META-INF/MANIFEST.MF b/nuxeo-user-profile/src/main/resources/META-INF/MANIFEST.MF
+index 09dca28..135cc0f 100644
+--- a/nuxeo-user-profile/src/main/resources/META-INF/MANIFEST.MF
++++ b/nuxeo-user-profile/src/main/resources/META-INF/MANIFEST.MF
+@@ -10,4 +10,5 @@ Nuxeo-Component: OSGI-INF/actions-contrib.xml,
+  OSGI-INF/listeners-contrib.xml,
+  OSGI-INF/userprofile-framework.xml,
+  OSGI-INF/theme-contrib.xml,
+- OSGI-INF/user-locale-contrib.xml
++ OSGI-INF/user-locale-contrib.xml,
++ OSGI-INF/directories-contrib.xml
+diff --git a/nuxeo-user-profile/src/main/resources/OSGI-INF/l10n/messages.properties b/nuxeo-user-profile/src/main/resources/OSGI-INF/l10n/messages.properties
+index 2440f5b..557bee7 100644
+--- a/nuxeo-user-profile/src/main/resources/OSGI-INF/l10n/messages.properties
++++ b/nuxeo-user-profile/src/main/resources/OSGI-INF/l10n/messages.properties
+@@ -13,5 +13,10 @@ helplabel.userprofile.avatar=Avatar images greater than 300x200 pixels are resiz
+ 
+ user.center.profile.tab.view=Profile
+ user.center.preferences.tab.view=Preferences
+-label.userPreferences.updateLocale=Edit locale settings
++label.userPreferences.updateLocale=Edit settings
+ label.userPreferences.resetTimeZone=Reset time zone from browser
++
++label.userpreferences.notifications=Notification frequency
++label.userprofile.notifications.immediate=Instant
++label.userprofile.notifications.daily=Daily
++label.userprofile.notifications.weekly=Weekly
+\ No newline at end of file
+diff --git a/nuxeo-user-profile/src/main/resources/OSGI-INF/layouts-contrib.xml b/nuxeo-user-profile/src/main/resources/OSGI-INF/layouts-contrib.xml
+index ffd7f36..40b4904 100644
+--- a/nuxeo-user-profile/src/main/resources/OSGI-INF/layouts-contrib.xml
++++ b/nuxeo-user-profile/src/main/resources/OSGI-INF/layouts-contrib.xml
+@@ -161,6 +161,22 @@
+       </properties>
+     </widget>
+ 
++    <widget name="notifications" type="selectOneDirectory">
++      <labels>
++        <label mode="any">label.userpreferences.notifications</label>
++      </labels>
++      <translated>true</translated>
++      <fields>
++        <field>userprofile:notifications</field>
++      </fields>
++      <properties widgetMode="any">
++        <property name="localize">true</property>
++        <property name="directoryName">periodicity</property>
++        <property name="displayIdAndLabel">false</property>
++        <property name="required">true</property>
++      </properties>
++    </widget>
++
+     <widget name="timezone" type="template">
+       <labels>
+         <label mode="any">label.userpreferences.timezone</label>
+@@ -240,6 +256,9 @@
+         <row>
+           <widget>timezone</widget>
+         </row>
++        <row>
++          <widget>notifications</widget>
++        </row>
+       </rows>
+     </layout>
+ 
+diff --git a/nuxeo-user-profile/src/main/resources/schemas/userprofile.xsd b/nuxeo-user-profile/src/main/resources/schemas/userprofile.xsd
+index 7607037..009b968 100644
+--- a/nuxeo-user-profile/src/main/resources/schemas/userprofile.xsd
++++ b/nuxeo-user-profile/src/main/resources/schemas/userprofile.xsd
+@@ -10,4 +10,5 @@
+   <xs:element name="phonenumber" type="xs:string" />
+   <xs:element name="gender" type="xs:boolean" default="false" />
+   <xs:element name="locale" type="xs:string" />
++  <xs:element name="notifications" type="xs:string" default="immediate" />
+ </xs:schema>

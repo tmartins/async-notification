@@ -1,0 +1,13 @@
+<component name="org.nuxeo.notification.async.placeful">
+
+  <extension target="org.nuxeo.ecm.platform.ec.placeful.PlacefulService"
+    point="annotations">
+
+    <!-- Not used yet -->
+    <annotation>
+      <class>org.nuxeo.ecm.platform.notification.async.PeriodicUserSubscription</class>
+    </annotation>
+
+  </extension>
+
+ </component>
